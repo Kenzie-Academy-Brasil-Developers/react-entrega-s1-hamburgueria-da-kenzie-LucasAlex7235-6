@@ -25,6 +25,7 @@ export const Header = styled.header`
     font-size: var(--heading1);
 
     color: var(--black);
+    cursor: pointer;
   }
 
   div h1 span {

@@ -1,7 +1,7 @@
 import { Header } from "./style";
 import { useState } from "react";
 
-export const LogoHeader = ({ filter }) => {
+export const LogoHeader = ({ filter, setState }) => {
   const [nameProduct, setNameProduct] = useState("");
 
   const searchProduct = () => {
@@ -11,7 +11,7 @@ export const LogoHeader = ({ filter }) => {
   return (
     <Header>
       <div>
-        <h1>
+        <h1 onClick={() => setState(true)}>
           Burguer <span>Kenzie</span>
         </h1>
 

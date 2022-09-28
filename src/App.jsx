@@ -98,7 +98,7 @@ const App = () => {
 
   return (
     <div className="reset containerMain">
-      <LogoHeader filter={filter} />
+      <LogoHeader filter={filter} setState={setState} />
       <SectionShow search={search} state={state}>
         <ShowCaseUl
           products={products}
