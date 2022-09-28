@@ -17,6 +17,14 @@ export const UlShowcase = styled.ul`
     height: 346px;
   }
 
+  .animate__bounceIn {
+    animation-duration: 0.8s;
+  }
+
+  .animate__bounceInDown {
+    animation-duration: 0.8s;
+  }
+
   figure {
     width: 100%;
     height: 162px;

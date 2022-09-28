@@ -66,6 +66,17 @@ export const Header = styled.header`
 
     font-size: var(--heading4);
     font-weight: 500;
+
+    animation: btnTransform 1s ease-in-out;
+  }
+
+  @keyframes btnTransform {
+    0% {
+      transform: translateX(-207%);
+    }
+    100% {
+      transform: translate(0);
+    }
   }
 
   @media (min-width: 600px) {

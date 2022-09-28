@@ -1,4 +1,5 @@
 import { ShoppingCart } from "./style";
+import "animate.css";
 
 export const CartShow = ({
   currentSale,
@@ -16,7 +17,11 @@ export const CartShow = ({
         {currentSale.length > 0 ? (
           currentSale.map((cart) => {
             return (
-              <li key={cart.id}>
+              <li
+                className="animate__animated animate__bounceInLeft"
+                key={cart.id}
+                id={cart.id}
+              >
                 <div className="containerContent">
                   <figure>
                     <img src={cart.img} alt={cart.name} />

@@ -1,4 +1,5 @@
 import { UlShowcase } from "./style";
+import "animate.css";
 
 export const ShowCaseUl = ({
   products,
@@ -13,7 +14,10 @@ export const ShowCaseUl = ({
         ? products.length > 0
           ? products.map((cards) => {
               return (
-                <li key={cards.id} className="card">
+                <li
+                  key={cards.id}
+                  className="card animate__animated animate__bounceIn"
+                >
                   <figure>
                     <img src={cards.img} alt="" />
                   </figure>
@@ -42,7 +46,10 @@ export const ShowCaseUl = ({
         : products.length > 0
         ? filteredProducts.map((cards) => {
             return (
-              <li key={cards.id} className="card">
+              <li
+                key={cards.id}
+                className="card card animate__animated animate__bounceInDown"
+              >
                 <figure>
                   <img src={cards.img} alt="" />
                 </figure>

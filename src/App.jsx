@@ -63,8 +63,12 @@ const App = () => {
   const removeCard = (food, price) => {
     const listCart = currentSale.filter((elem) => elem.id !== food.id);
     const newId = listCart.map((elem) => elem.id);
-    setId(newId);
-    setCurrentSale(listCart);
+
+    document.getElementById(food.id).classList.add("animate__fadeOut");
+    setTimeout(() => {
+      setId(newId);
+      setCurrentSale(listCart);
+    }, 100);
   };
 
   const removeAll = () => {

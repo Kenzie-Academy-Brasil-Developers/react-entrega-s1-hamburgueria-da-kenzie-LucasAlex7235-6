@@ -35,6 +35,14 @@ export const ShoppingCart = styled.aside`
     justify-content: space-between;
   }
 
+  .animate__bounceInLeft {
+    animation-duration: 0.8s;
+  }
+
+  .animate__fadeOut {
+    animation-duration: 0.1s;
+  }
+
   li .containerContent {
     display: flex;
     gap: 10px;
