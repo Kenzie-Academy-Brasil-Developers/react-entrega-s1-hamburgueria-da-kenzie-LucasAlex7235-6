@@ -66,7 +66,6 @@ export const Header = styled.header`
 
     font-size: var(--heading4);
     font-weight: 500;
-
     animation: btnTransform 1s ease-in-out;
   }
 
