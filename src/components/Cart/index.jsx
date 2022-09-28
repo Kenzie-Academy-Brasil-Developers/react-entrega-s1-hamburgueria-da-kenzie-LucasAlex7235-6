@@ -1,6 +1,12 @@
 import { ShoppingCart } from "./style";
 
-export const CartShow = ({ currentSale, cartTotal, removeCard, price }) => {
+export const CartShow = ({
+  currentSale,
+  cartTotal,
+  removeCard,
+  price,
+  removeAll,
+}) => {
   return (
     <ShoppingCart>
       <header>
@@ -44,12 +50,13 @@ export const CartShow = ({ currentSale, cartTotal, removeCard, price }) => {
           <div>
             <p>Total</p>
             <span>
+              R$
               {cartTotal.toString().split("").length < 4
                 ? `${cartTotal},00`
                 : cartTotal.toFixed(2)}
             </span>
           </div>
-          <button>Remover todos</button>
+          <button onClick={removeAll}>Remover todos</button>
         </footer>
       )}
     </ShoppingCart>

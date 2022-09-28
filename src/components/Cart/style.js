@@ -128,6 +128,14 @@ export const ShoppingCart = styled.aside`
 
     font-size: var(--headline);
     font-weight: 600;
+    cursor: pointer;
+    transition: 0.6s;
+  }
+
+  footer button:hover {
+    color: var(--white);
+    background-color: var(--black);
+    transition: 0.6s;
   }
 
   .material-symbols-outlined {

@@ -4,6 +4,8 @@ import { LogoHeader } from "./components/header";
 import { SectionShow } from "./components/section";
 import { ShowCaseUl } from "./components/showcase";
 import { CartShow } from "./components/Cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -22,11 +24,40 @@ const App = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const notifyError = () => {
+    toast.error("🍔 Já foi adicionado no carrinho", {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const notifyConfirm = () => {
+    toast.success("🍔 Adicionado no carrinho com sucesso", {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const addCart = (food) => {
     setId([...id, food.id]);
-    currentSale.length > 0
-      ? !id.includes(food.id) && setCurrentSale([...currentSale, food])
-      : setCurrentSale([...currentSale, food]);
+    if (currentSale.length > 0) {
+      !id.includes(food.id)
+        ? !setCurrentSale([...currentSale, food]) && notifyConfirm()
+        : notifyError();
+    } else if (currentSale.length < 1) {
+      setCurrentSale([...currentSale, food]);
+      notifyConfirm();
+    }
   };
 
   const removeCard = (food, price) => {
@@ -34,6 +65,12 @@ const App = () => {
     const newId = listCart.map((elem) => elem.id);
     setId(newId);
     setCurrentSale(listCart);
+  };
+
+  const removeAll = () => {
+    setCurrentSale([]);
+    setId([]);
+    setCartTotal(0);
   };
 
   const price = (boolean, price, food) => {
@@ -58,7 +95,7 @@ const App = () => {
   return (
     <div className="reset containerMain">
       <LogoHeader filter={filter} />
-      <SectionShow>
+      <SectionShow search={search} state={state}>
         <ShowCaseUl
           products={products}
           setCurrentSale={addCart}
@@ -66,11 +103,13 @@ const App = () => {
           boolean={state}
           filteredProducts={filteredProducts}
         />
+        <ToastContainer />
         <CartShow
           currentSale={currentSale}
           cartTotal={cartTotal}
           removeCard={removeCard}
           price={price}
+          removeAll={removeAll}
         />
       </SectionShow>
     </div>
