@@ -1,0 +1,31 @@
+.container {
+  padding: 20px;
+  max-width: 1582px;
+  margin: 0 auto;
+}
+
+.container h2 {
+  font-size: var(--heading1);
+  font-weight: 700;
+
+  color: var(--black);
+}
+
+.container h2 span {
+  font-size: var(--heading1);
+  font-weight: 700;
+
+  color: var(--grey-50);
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: 14px 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 14px 100px;
+  }
+}
